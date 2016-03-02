@@ -34,11 +34,11 @@ again:
 #ifdef EPROTO
         if (errno == EPROTO || errno == ECONNABORTED)
 #else
-            if (errno == ECONNABORTED)
+        if (errno == ECONNABORTED)
 #endif
-                goto again;
-            else
-                err_sys("accept error");
+            goto again;
+        else
+            err_sys("accept error");
     }
     return(n);
 }
