@@ -80,7 +80,9 @@ int main(int argc, char **argv)
         ticks = time(NULL);
         snprintf(buff, sizeof(buff), "%.24s\r\n", ctime(&ticks));
         write(connfd, buff, strlen(buff));
-        
+//        for (int i=0; i<strlen(buff); i++) {
+//            write(connfd, &buff[i], 1);
+//        }
         close(connfd);
     }
 }

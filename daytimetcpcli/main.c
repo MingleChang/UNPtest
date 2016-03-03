@@ -18,7 +18,7 @@ int main(int argc, char **argv)
         err_quit("usage: a.out <IPaddress>");
     
     if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-        err_sys("socket error");
+        err_sys("socket error:%i",sockfd);
     
     bzero(&servaddr, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
