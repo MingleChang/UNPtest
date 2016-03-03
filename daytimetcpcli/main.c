@@ -29,11 +29,14 @@ int main(int argc, char **argv)
     if (connect(sockfd, (SA *) &servaddr, sizeof(servaddr)) < 0)
         err_sys("connect error");
     
+    int count=0;
     while ( (n = read(sockfd, recvline, MAXLINE)) > 0) {
+        count++;
         recvline[n] = 0;	/* null terminate */
         if (fputs(recvline, stdout) == EOF)
             err_sys("fputs error");
     }
+    printf("%i\r\n",count);
     if (n < 0)
         err_sys("read error");
     
